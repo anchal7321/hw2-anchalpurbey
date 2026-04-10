@@ -1,3 +1,11 @@
+# /// script
+# requires-python = ">=3.11"
+# dependencies = [
+#   "google-genai",
+#   "python-dotenv",
+# ]
+# ///
+
 """
 app.py - Meeting Transcript Summarizer using Gemini API
 Usage:
