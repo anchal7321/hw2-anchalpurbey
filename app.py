@@ -77,8 +77,25 @@ Read the meeting transcript and produce:
 Meeting Transcript:
 \"\"\"{transcript}\"\"\""""
 
+    elif version == "v2":
+        return f"""You are a professional meeting assistant helping a project manager.
+
+Read the meeting transcript and provide:
+1. a brief summary of important points to consider
+2. actionable next steps
+
+Rules:
+- Do not invent facts
+- Do not invent names, dates, owners, or numbers
+- If something is uncertain, say it is uncertain
+- Use bullet points
+- Keep the response concise and professional
+
+Meeting Transcript:
+\"\"\"{transcript}\"\"\""""
+
     else:
-        raise ValueError(f"Unknown prompt version: {version}. Use 'v1'.")
+        raise ValueError(f"Unknown prompt version: {version}. Use 'v1' or 'v2'.")
 
 
 # -- Call Gemini API -----------------------------------------------------------
@@ -126,8 +143,8 @@ def main():
         help="Transcript case number (1-5, default: 1)"
     )
     parser.add_argument(
-        "--prompt", type=str, choices=["v1"], default="v1",
-        help="Prompt version (default: v1)"
+        "--prompt", type=str, choices=["v1", "v2"], default="v1",
+        help="Prompt version: v1 (baseline) or v2 (revised) (default: v1)"
     )
     args = parser.parse_args()
 
