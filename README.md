@@ -50,7 +50,7 @@ This task is valuable to save time, improve consistency, and reduce the effort n
 
 ## Video
 
-**hw2_anchalpurbey_short video:** [https://youtu.be/CnZ5xIO-c-g](https://youtu.be/CnZ5xIO-c-g)
+**hw2_anchalpurbey_short video:** [https://youtu.be/1W6OucCrnPE](https://youtu.be/1W6OucCrnPE)
 
 **hw2_anchalpurbey_long video:** [https://youtu.be/kRxDQ-UyLpA](https://youtu.be/kRxDQ-UyLpA)
 
