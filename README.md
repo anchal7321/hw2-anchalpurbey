@@ -45,6 +45,10 @@ This task is valuable to save time, improve consistency, and reduce the effort n
 - `4816fc0`: Add revision notes to prompts.md
 - `0e63c8d`: Add full report to report.md
 
+## Video
+
+**hw2_anchalpurbey_short video:** [https://youtu.be/CnZ5xIO-c-g](https://youtu.be/CnZ5xIO-c-g)
+
 ## Author
 
 **Anchal Purbey**
