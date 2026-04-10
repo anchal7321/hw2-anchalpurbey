@@ -90,20 +90,24 @@ Meeting Transcript:
 Respond only with the two labeled sections above. Do not add assumptions or invented facts."""
 
     elif version == "v2":
-        return f"""You are a senior project management assistant. Your role is to extract structured insights from meeting notes to help leaders make informed decisions quickly.
+        return f"""You are a professional meeting assistant helping a project manager.
 
-Analyze the transcript below and return exactly two sections:
+Read the following meeting transcript and produce exactly two sections:
 
 SECTION 1 - KEY POINTS TO CONSIDER
-Provide 3-5 concise bullet points capturing the most critical discussion items. Use cautious language where information is uncertain or unconfirmed. Flag sensitive topics that require human review before wider sharing.
+- Provide 3 to 5 concise bullet points summarizing the most important discussion points.
+- Only include facts explicitly mentioned in the transcript.
+- If information is uncertain or unconfirmed, state that clearly.
 
 SECTION 2 - ACTIONABLE NEXT STEPS
-List specific, time-bound actions wherever possible. If a deadline or owner was not mentioned, note that it must be confirmed. Do not fabricate numbers, names, dates, or conclusions not present in the transcript.
+- Provide a brief bullet list of concrete follow-up actions supported by the transcript.
+- If ownership is unclear, note that it still needs to be assigned.
+- Do not invent deadlines, owners, or additional facts.
 
-Transcript:
+Meeting Transcript:
 \"\"\"{transcript}\"\"\"
 
-Be professional, concise, and faithful to the transcript only."""
+Respond only with the two labeled sections above. Be concise, professional, and faithful to the transcript."""
 
     else:
         raise ValueError(f"Unknown prompt version: {version}. Use 'v1' or 'v2'.")
