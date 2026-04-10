@@ -169,19 +169,19 @@ def main():
     print(f"  Model: {MODEL}")
     print(f"{'='*60}\n")
 
-    print("── TRANSCRIPT ──────────────────────────────────────────")
+    print("-- TRANSCRIPT ------------------------------------------")
     print(transcript)
     print()
 
-    print("── Calling Gemini API... ───────────────────────────────")
+    print("-- Calling Gemini API... -------------------------------")
     prompt = build_prompt(transcript, args.prompt)
     output = call_gemini(prompt)
 
-    print("\n── GENERATED OUTPUT ────────────────────────────────────")
+    print("\n-- GENERATED OUTPUT ------------------------------------")
     print(output)
 
     saved_path = save_output(args.case, label, args.prompt, transcript, output)
-    print(f"\n── Output saved to: {saved_path}")
+    print(f"\n-- Output saved to: {saved_path}")
     print(f"{'='*60}\n")
 
 
