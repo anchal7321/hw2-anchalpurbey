@@ -39,3 +39,25 @@ Rules:
 - If the content is sensitive, confidential, or based on unfinished decisions, say human review is needed
 - Focus only on what is supported by the transcript
 - Keep the response concise and easy to scan
+
+---
+
+## Revision Notes
+
+### Revision 1
+**What changed and why**
+
+I revised the baseline prompt by adding clearer rules to keep the model grounded in the transcript and avoid unsupported inferences. I made this change because the baseline output invented actions that were not actually stated.
+
+**What improved, stayed the same, or got worse**
+
+Revision 1 improved faithfulness and conciseness by removing invented next steps and keeping the output closer to the transcript. It stayed effective at summarizing the main issues, but it was still limited in how explicitly it handled sensitivity and human review.
+
+### Revision 2
+**What changed and why**
+
+I revised the prompt again by adding explicit instructions to label uncertain information as unconfirmed and to flag sensitive, unfinished discussions for human review. I made this change because Revision 1 was accurate, but it still treated the transcript like a normal update instead of a confidential leadership discussion.
+
+**What improved, stayed the same, or got worse**
+
+Revision 2 improved risk handling by correctly identifying information as unconfirmed and by adding a human review warning. It stayed concise and faithful to the transcript, though the output became more cautious and less action-oriented, which is appropriate for this type of case.
