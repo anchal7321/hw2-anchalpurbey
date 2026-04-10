@@ -22,7 +22,7 @@ from google import genai
 load_dotenv()
 
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-MODEL = "gemini-2.5-flash"
+MODEL = "gemini-2.5-flash-lite"
 
 # -- Built-in transcript cases (matching eval_set.md) --------------------------
 TRANSCRIPTS = {
@@ -71,46 +71,18 @@ TRANSCRIPTS = {
 # -- Prompt versions -----------------------------------------------------------
 def build_prompt(transcript: str, version: str) -> str:
     if version == "v1":
-        return f"""You are a professional meeting assistant helping a project manager.
+        return f"""Read the meeting transcript and provide:
 
-Read the following meeting transcript and produce two sections:
+1. a brief summary of important points to consider
+2. actionable next steps
 
-1. SUMMARY OF KEY POINTS
-   - A brief bullet list of the most important points discussed.
-   - Only include facts explicitly mentioned in the transcript.
-
-2. ACTIONABLE NEXT STEPS
-   - A brief bullet list of concrete actions that need to be taken.
-   - If ownership is unclear, note that it needs to be assigned.
-   - If information is uncertain, reflect that uncertainty clearly.
+Be professional, concise, and faithful to the transcript only.
 
 Meeting Transcript:
-\"\"\"{transcript}\"\"\"
-
-Respond only with the two labeled sections above. Do not add assumptions or invented facts."""
-
-    elif version == "v2":
-        return f"""You are a professional meeting assistant helping a project manager.
-
-Read the following meeting transcript and produce exactly two sections:
-
-SECTION 1 - KEY POINTS TO CONSIDER
-- Provide 3 to 5 concise bullet points summarizing the most important discussion points.
-- Only include facts explicitly mentioned in the transcript.
-- If information is uncertain or unconfirmed, state that clearly.
-
-SECTION 2 - ACTIONABLE NEXT STEPS
-- Provide a brief bullet list of concrete follow-up actions supported by the transcript.
-- If ownership is unclear, note that it still needs to be assigned.
-- Do not invent deadlines, owners, or additional facts.
-
-Meeting Transcript:
-\"\"\"{transcript}\"\"\"
-
-Respond only with the two labeled sections above. Be concise, professional, and faithful to the transcript."""
+\"\"\"{transcript}\"\"\""""
 
     else:
-        raise ValueError(f"Unknown prompt version: {version}. Use 'v1' or 'v2'.")
+        raise ValueError(f"Unknown prompt version: {version}. Use 'v1'.")
 
 
 # -- Call Gemini API -----------------------------------------------------------
@@ -158,8 +130,8 @@ def main():
         help="Transcript case number (1-5, default: 1)"
     )
     parser.add_argument(
-        "--prompt", type=str, choices=["v1", "v2"], default="v1",
-        help="Prompt version: v1 (simple) or v2 (detailed) (default: v1)"
+        "--prompt", type=str, choices=["v1"], default="v1",
+        help="Prompt version: v1 (default: v1)"
     )
     args = parser.parse_args()
 
