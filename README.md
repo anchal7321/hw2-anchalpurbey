@@ -44,6 +44,9 @@ This task is valuable to save time, improve consistency, and reduce the effort n
 - `0f600d3`: Update v3 Revision 2 with human review and uncertainty rules
 - `4816fc0`: Add revision notes to prompts.md
 - `0e63c8d`: Add full report to report.md
+- `38031f9`: Add git steps and commit history to README
+- `7b147ea`: Add short video link to README
+- `973fe13`: Add long video link to README
 
 ## Video
 
